@@ -1,5 +1,6 @@
 package org.leanpoker.player.startinghand;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -43,7 +44,7 @@ public class StartingHandHandler {
 						ex.printStackTrace(System.err);
 					}
 				}
-			} catch (Exception ex) {
+			} catch (IOException ex) {
 				ex.printStackTrace(System.err);
 				// TODO
 			}
