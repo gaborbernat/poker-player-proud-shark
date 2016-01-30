@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Parser {
 
-	private static List<Card> getOurHand(JsonElement request) {
+	public static List<Card> getOurHand(JsonElement request) {
 		List<Card> elements = new ArrayList<>();
 		for (JsonElement i : getPlayer(request, "Proud Shark").get("hole_cards").getAsJsonArray()) {
 			JsonObject p = i.getAsJsonObject();
@@ -17,7 +17,7 @@ public class Parser {
 		return elements;
 	}
 
-	private static JsonObject getPlayer(JsonElement request, String name) {
+	public static JsonObject getPlayer(JsonElement request, String name) {
 		for (JsonElement players : request.getAsJsonObject().get("players").getAsJsonArray()) {
 			final JsonObject p = players.getAsJsonObject();
 			if (p.get("name").equals(name)) { return p; }
@@ -25,21 +25,54 @@ public class Parser {
 		return null;
 	}
 
-	private static JsonObject getOurPlayer(JsonElement request) {
+	public static JsonObject getOurPlayer(JsonElement request) {
 		return getPlayer(request, "Proud Shark");
 	}
 
-	static enum Suit {
+	public static enum Suit {
 		hearts, spades, clubs, diamonds;
 	}
 
-	static class Card {
+	public static class Card {
 		public final int number;
 		public final Suit suit;
 
 		Card(String number, String type) {
-			this.number = 0;
+			this.number = getNumber(number);
 			this.suit = Suit.valueOf(type);
+		}
+
+		private int getNumber(String number) {
+			switch (number) {
+				case "2":
+					return 2;
+				case "3":
+					return 3;
+				case "4":
+					return 4;
+				case "5":
+					return 5;
+				case "6":
+					return 6;
+				case "7":
+					return 7;
+				case "8":
+					return 8;
+				case "9":
+					return 9;
+				case "10":
+					return 10;
+				case "J":
+					return 11;
+				case "Q":
+					return 12;
+				case "K":
+					return 13;
+				case "A":
+					return 14;
+				default:
+					return 1;
+			}
 		}
 	}
 
