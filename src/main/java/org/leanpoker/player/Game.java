@@ -17,7 +17,7 @@ public class Game {
 	}
 
 	/**
-	 * A játékban hányas számú játékos vagyunk? a "players" lista indexe.
+	 * The index of our player in the "players" list.
 	 */
 	public int getOurIndex() { 
 		if (index<0) {
@@ -33,7 +33,7 @@ public class Game {
 	}
 	
 	/**
-	 * Hány aktív játékos van még? (Aktív = nem esett ki és nem foldolt)
+	 * Number of active players.
 	 */
 	public int getActivePlayerCount() {
 		int cnt = 0;
@@ -46,10 +46,16 @@ public class Game {
 	}
 	
 	/**
-	 * Mi vagyunk a dealer?
+	 * Is the dealer our player?
 	 */
 	public boolean isDealerUs() {
 		return state.getDealer()==getOurIndex();
 	}
+	
+	public boolean isThereAnyBetInRound() {
+		return state.getPot()>state.getSmallBlind()*3;
+	}
+	
+	
 	
 }
