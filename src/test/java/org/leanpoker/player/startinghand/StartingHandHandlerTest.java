@@ -2,7 +2,8 @@ package org.leanpoker.player.startinghand;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.leanpoker.player.Parser.Card;
+import org.leanpoker.player.domain.Card;
+
 
 public class StartingHandHandlerTest {
 

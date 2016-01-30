@@ -1,11 +1,12 @@
 package org.leanpoker.player.startinghand;
 
+import org.leanpoker.player.domain.Card;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import org.leanpoker.player.Parser.Card;
 
 public class StartingHandHandler {
 	
@@ -13,9 +14,6 @@ public class StartingHandHandler {
 	private static Map<String, Integer> mapping;
 
 	public int getStartingHandValue(Card card1, Card card2) {
-//		if (card1.number>12 && card2.number>12)
-//			return 1;
-//		return 10;
 		return find(card1, card2);
 	}
 	
@@ -25,7 +23,7 @@ public class StartingHandHandler {
 			value = getMapping().get(decode(card2, card1));
 		}
 		if (value!=null)
-			return value.intValue();
+			return value;
 		else
 			return 10;
 	}
@@ -54,13 +52,13 @@ public class StartingHandHandler {
 	
 	private final String decode(Card card1, Card card2) {
 		StringBuilder str = new StringBuilder();
-		if (card1.suit!=card2.suit) {
+		if (!card1.getSuit().equals(card2.getSuit())) {
 			str.append("o");
 		} else {
 			str.append("s");
 		}
-		str.append(decode(card1.number));
-		str.append(decode(card2.number));
+		str.append(decode(card1.getNumber()));
+		str.append(decode(card2.getNumber()));
 		return str.toString();
 	}
 	
