@@ -6,12 +6,12 @@ import com.google.gson.JsonElement;
 
 public class Player {
 
-	static final String VERSION = "Steady red, adapt, static dealer fixed rules";
+	static final String VERSION = "Steady red, adapt, static fixed rules";
 
 	public static int betRequest(JsonElement request) {
 		try {
 
-			return new Game(JsonParser.parseGameState(request.toString())).secondStrategy();
+			return new Game(JsonParser.parseGameState(request.toString())).firstStrategy();
 		} catch (Exception e) {
 			// noinspection ThrowablePrintedToSystemOut
 			System.err.println(e);
