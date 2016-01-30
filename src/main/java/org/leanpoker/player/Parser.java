@@ -7,10 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Parser {
+	final static String OUR_NAME = "Proud Shark";
 
-	public static List<Card> getOurHand(JsonElement request) {
+	public static List<Card> getOurHand(JsonElement request, final String name) {
+		return getHand(request, OUR_NAME);
+	}
+
+	public static List<Card> getHand(JsonElement request, final String name) {
 		List<Card> elements = new ArrayList<>();
-		for (JsonElement i : getPlayer(request, "Proud Shark").get("hole_cards").getAsJsonArray()) {
+		for (JsonElement i : getPlayer(request, name).get("hole_cards").getAsJsonArray()) {
 			JsonObject p = i.getAsJsonObject();
 			elements.add(new Card(p.get("rank").getAsString(), p.get("suit").getAsString()));
 		}
@@ -26,7 +31,7 @@ public class Parser {
 	}
 
 	public static JsonObject getOurPlayer(JsonElement request) {
-		return getPlayer(request, "Proud Shark");
+		return getPlayer(request, OUR_NAME);
 	}
 
 	public static enum Suit {
