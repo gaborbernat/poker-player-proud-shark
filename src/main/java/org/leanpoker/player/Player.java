@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Player {
 
-	static final String VERSION = "Let's do this";
+	static final String VERSION = "Let's do this fixed";
 
 	public static int betRequest(JsonElement request) {
 		try {
