@@ -45,6 +45,9 @@ public class Game {
 		return cnt;
 	}
 	
+	/**
+	 * Mi vagyunk a dealer?
+	 */
 	public boolean isDealerUs() {
 		return state.getDealer()==getOurIndex();
 	}
