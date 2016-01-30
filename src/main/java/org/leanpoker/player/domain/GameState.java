@@ -12,11 +12,11 @@ public class GameState {
 	private int dealer;
 	private int orbits;
 	private int in_action;
-	private List<?> players;
+	private List<OtherPlayer> players;
 	private List<Card> community_cards;
 
 	public GameState(int round, int betIndex, int smallBlind, int currentBuyIn, int pot, int minimumRaise, int dealer,
-			int orbits, int inAction, List<?> players, List<Card> communityCards) {
+			int orbits, int inAction, List<OtherPlayer> players, List<Card> communityCards) {
 		this.round = round;
 		this.bet_index = betIndex;
 		this.setCommunityCards(communityCards);
@@ -34,7 +34,7 @@ public class GameState {
 	public String toString() {
 		return "GameState [round=" + round + ", bet_index=" + bet_index + ", small_blind=" + small_blind
 				+ ", current_buy_in=" + current_buy_in + ", pot=" + pot + ", minimum_raise=" + minimum_raise
-				+ ", dealer=" + dealer + ", orbits=" + orbits + ", in_action=" + in_action + ", players=" + players
+				+ ", dealer=" + dealer + ", orbits=" + orbits + ", in_action=" + in_action + ", players=" + players.toString()
 				+ ", community_cards=" + community_cards.toString() + "]";
 	}
 
@@ -172,11 +172,11 @@ public class GameState {
 		this.in_action = inAction;
 	}
 
-	public List<?> getPlayers() {
+	public List<OtherPlayer> getPlayers() {
 		return players;
 	}
 
-	public void setPlayers(List<?> players) {
+	public void setPlayers(List<OtherPlayer> players) {
 		this.players = players;
 	}
 
