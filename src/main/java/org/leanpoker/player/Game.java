@@ -16,6 +16,9 @@ public class Game {
 		this.state = state;
 	}
 
+	/**
+	 * A játékban hányas számú játékos vagyunk? a "players" lista indexe.
+	 */
 	public int getOurIndex() {
 		if (index<0) {
 			index = 0;
@@ -29,6 +32,9 @@ public class Game {
 		return index;
 	}
 	
+	/**
+	 * Hány aktív játékos van még? (Aktív = nem esett ki és nem foldolt)
+	 */
 	public int getActivePlayerCount() {
 		int cnt = 0;
 		for (OtherPlayer player : state.getPlayers()) {
@@ -37,6 +43,10 @@ public class Game {
 			}
 		}
 		return cnt;
+	}
+	
+	public boolean isDealerUs() {
+		return state.getDealer()==getOurIndex();
 	}
 	
 }
