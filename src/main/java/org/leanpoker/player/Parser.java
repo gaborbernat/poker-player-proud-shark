@@ -25,7 +25,7 @@ public class Parser {
 	public static JsonObject getPlayer(JsonElement request, String name) {
 		for (JsonElement players : request.getAsJsonObject().get("players").getAsJsonArray()) {
 			final JsonObject p = players.getAsJsonObject();
-			if (p.get("name").equals(name)) { return p; }
+			if (p.get("name").getAsString().equals(name)) { return p; }
 		}
 		return null;
 	}
@@ -42,7 +42,7 @@ public class Parser {
 		public final int number;
 		public final Suit suit;
 
-		Card(String number, String type) {
+		public Card(String number, String type) {
 			this.number = getNumber(number);
 			this.suit = Suit.valueOf(type);
 		}
