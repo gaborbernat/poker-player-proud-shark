@@ -1,6 +1,5 @@
 package org.leanpoker.player.domain;
 
-import org.leanpoker.player.Parser.Suit;
 
 public class Card {
 	private final String rank;
