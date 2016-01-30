@@ -1,5 +1,7 @@
 package org.leanpoker.player.domain;
 
+import java.util.List;
+
 public class OtherPlayer {
 	private int id;
 	private String name;
@@ -7,6 +9,7 @@ public class OtherPlayer {
 	private String version;
 	private int stack;
 	private int bet;
+	private List<Card> hole_cards;
 
 	public OtherPlayer(int id, String name, String status, String version, int stack, int bet) {
 		super();
@@ -64,6 +67,14 @@ public class OtherPlayer {
 
 	public void setVersion(String version) {
 		this.version = version;
+	}
+	
+	public List<Card> getHole_cards() {
+		return hole_cards;
+	}
+	
+	public void setHole_cards(List<Card> hole_cards) {
+		this.hole_cards = hole_cards;
 	}
 
 	@Override
