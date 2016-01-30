@@ -10,7 +10,8 @@ public class Player {
 
 	public static int betRequest(JsonElement request) {
 		try {
-			return new Game(JsonParser.parseGameState(request.getAsString())).secondStrategy();
+
+			return new Game(JsonParser.parseGameState(request.toString())).secondStrategy();
 		} catch (Exception e) {
 			// noinspection ThrowablePrintedToSystemOut
 			System.err.println(e);
