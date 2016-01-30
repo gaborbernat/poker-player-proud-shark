@@ -1,11 +1,12 @@
 package org.leanpoker.player;
 
+import java.util.List;
+
 import org.leanpoker.player.domain.Card;
 import org.leanpoker.player.domain.GameState;
 import org.leanpoker.player.domain.OtherPlayer;
+import org.leanpoker.player.postFlop.PostFlopStrategy;
 import org.leanpoker.player.startinghand.StartingHandHandler;
-
-import java.util.List;
 
 public class Game {
 
@@ -59,7 +60,8 @@ public class Game {
 	public boolean shouldWeGo() {
 		List<Card> cards = state.getPlayers().get(state.getInAction()).getHole_cards();
 		final int limit = getActivePlayerCount() <= 3 ? 3 : 1;
-		return new StartingHandHandler().getStartingHandValue(cards.get(0), cards.get(1)) <= limit;
+			return new StartingHandHandler().getStartingHandValue(cards.get(0), cards.get(1)) <= limit;
+			
 	}
 
 	private static int allInValue() {
@@ -75,8 +77,13 @@ public class Game {
 	}
 
 	public int secondStrategy() {
-		if (isDealerUs() && !isThereAnyBetInRound()) { return state.getMinimumRaise(); }
-		return firstStrategy();
+		if (isDealerUs() && !isThereAnyBetInRound()) {
+			return state.getMinimumRaise();
+		}
+		
+		PostFlopStrategy strategy = new PostFlopStrategy(state);
+		int bet = strategy.getBet();
+		return bet;
 	}
 
 }
