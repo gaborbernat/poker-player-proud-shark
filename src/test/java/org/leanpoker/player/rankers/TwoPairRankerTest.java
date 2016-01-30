@@ -22,5 +22,18 @@ public class TwoPairRankerTest {
 		 int actual = underTest.getRank(cards);
 		 Assert.assertEquals(232, actual);
 	}
+	
+	@Test
+	public void testNotTwoPair(){
+		List<Card> cards = new ArrayList<Card>();
+		cards.add(new Card("A",Suit.hearts.name()));
+		cards.add(new Card("A",Suit.clubs.name()));
+		cards.add(new Card("2",Suit.hearts.name()));
+		cards.add(new Card("3",Suit.clubs.name()));
+		
+		TwoPairRanker underTest = new TwoPairRanker();
+		int actual = underTest.getRank(cards);
+		Assert.assertEquals(0, actual);
+	}
 
 }

@@ -2,6 +2,8 @@ package org.leanpoker.player.domain;
 
 import org.leanpoker.player.rankers.NumberRanker;
 import org.leanpoker.player.rankers.RankerType;
+import org.leanpoker.player.rankers.TwoPairRanker;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,7 @@ public class Ranker {
     public Ranker() {
         rankers = new ArrayList<>();
         rankers.add(new NumberRanker());
+        rankers.add(new TwoPairRanker());
     }
 
     public int getRank(List<Card> cards) {
