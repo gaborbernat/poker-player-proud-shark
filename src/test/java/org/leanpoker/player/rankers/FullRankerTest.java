@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.leanpoker.player.Parser.Suit;
 import org.leanpoker.player.domain.Card;
+import org.leanpoker.player.domain.Suit;
 
 public class FullRankerTest {
 
