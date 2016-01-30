@@ -25,7 +25,7 @@ public class Parser {
 	public static JsonObject getPlayer(JsonElement request, String name) {
 		for (JsonElement players : request.getAsJsonObject().get("players").getAsJsonArray()) {
 			final JsonObject p = players.getAsJsonObject();
-			if (p.get("name").equals(name)) { return p; }
+			if (p.get("name").getAsString().equals(name)) { return p; }
 		}
 		return null;
 	}
