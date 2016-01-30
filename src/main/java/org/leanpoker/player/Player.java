@@ -14,6 +14,7 @@ public class Player {
 		} catch (Exception e) {
 			// noinspection ThrowablePrintedToSystemOut
 			System.err.println(e);
+			e.printStackTrace(System.err);
 			return 0;
 		}
 
