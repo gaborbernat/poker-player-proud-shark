@@ -7,6 +7,8 @@ import org.leanpoker.player.startinghand.StartingHandHandler;
 
 import java.util.List;
 
+import static javafx.scene.input.KeyCode.M;
+
 public class Game {
 
 	private static final String TEAM_NAME = "Proud Shark";
@@ -58,7 +60,8 @@ public class Game {
 
 	public boolean shouldWeGo() {
 		List<Card> cards = state.getPlayers().get(state.getInAction()).getHole_cards();
-		return new StartingHandHandler().getStartingHandValue(cards.get(0), cards.get(1)) <= 2;
+		final int limit = getActivePlayerCount() <= 3 ? 3 : 1;
+		return new StartingHandHandler().getStartingHandValue(cards.get(0), cards.get(1)) <= limit;
 	}
 
 	private static int allInValue() {

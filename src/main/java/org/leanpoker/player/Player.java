@@ -6,7 +6,7 @@ import com.google.gson.JsonElement;
 
 public class Player {
 
-	static final String VERSION = "Steady red";
+	static final String VERSION = "Steady red, adapt";
 
 	public static int betRequest(JsonElement request) {
 		try {
