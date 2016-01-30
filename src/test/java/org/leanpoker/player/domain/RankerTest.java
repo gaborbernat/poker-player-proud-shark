@@ -31,4 +31,18 @@ public class RankerTest {
 		
 		Assert.assertEquals(248, actual);
 	}
+	@Test
+	public void testFullRanker(){
+		ArrayList<Card> cards = new ArrayList<>();
+		cards.add(new Card("A", Suit.hearts.name()));
+		cards.add(new Card("A", Suit.clubs.name()));
+		cards.add(new Card("10", Suit.hearts.name()));
+		cards.add(new Card("10", Suit.clubs.name()));
+		cards.add(new Card("10", Suit.diamonds.name()));
+		Ranker ranker = new Ranker();
+		//when
+		int actual = ranker.getRank(cards);
+		
+		Assert.assertEquals(558, actual);
+	}
 }
