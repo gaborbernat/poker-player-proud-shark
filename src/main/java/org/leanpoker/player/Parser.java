@@ -42,7 +42,7 @@ public class Parser {
 		public final int number;
 		public final Suit suit;
 
-		Card(String number, String type) {
+		public Card(String number, String type) {
 			this.number = getNumber(number);
 			this.suit = Suit.valueOf(type);
 		}
