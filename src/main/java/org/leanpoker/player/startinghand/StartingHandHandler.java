@@ -30,7 +30,7 @@ public class StartingHandHandler {
 			return 10;
 	}
 	
-	private final Map<String, Integer> getMapping() {
+	private final Map<String, Integer> getMapping() { 
 		if (mapping==null) {
 			mapping = new HashMap<String, Integer>();
 			Properties props = new Properties();
