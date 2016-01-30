@@ -26,6 +26,14 @@ public class StartingHandHandlerTest {
 		int result = tested.getStartingHandValue(card1, card2);
 		Assert.assertEquals(1, result);
 	}
+	@Test
+	public void getStartingHandValue_QQ() {
+		// given
+		Card card1 = new Card("Q", "hearts");
+		Card card2 = new Card("Q", "spades");
+		int result = tested.getStartingHandValue(card1, card2);
+		Assert.assertEquals(1, result);
+	}
 	
 	@Test
 	public void getStartingHandValue_AK() {

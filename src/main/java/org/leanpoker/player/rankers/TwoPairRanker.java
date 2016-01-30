@@ -23,6 +23,7 @@ public class TwoPairRanker implements RankerType {
 
 		int maxIndex = 15;
 		int maxRank = 0;
+		boolean twoPair = false;
 		for (int i = 14; i > 1; i--) {
 			Integer actual = groups.get(i);
 			actual = (actual == null) ? 0 : actual;
@@ -31,9 +32,10 @@ public class TwoPairRanker implements RankerType {
 				maxRank = i * actual;
 			} else if (actual > 1) {
 				maxRank += i * actual;
+				twoPair = true;
 			}
 		}
-		return maxRank + 200;
+		return twoPair ? maxRank + 200 : 0;
 	}
 
 }
