@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Player {
 
-	static final String VERSION = "Let's do this fixed";
+	static final String VERSION = "Let's do this fixed - 2";
 
 	public static int betRequest(JsonElement request) {
 		try {
@@ -24,7 +24,7 @@ public class Player {
 		List<Parser.Card> ourCards = Parser.getOurHand(element);
 		Parser.Card f = ourCards.get(0);
 		Parser.Card s = ourCards.get(1);
-		return new StartingHandHandler().getStartingHandValue(f, s) < 2;
+		return new StartingHandHandler().getStartingHandValue(f, s) <= 2;
 	}
 
 	private static int allInValue() {
