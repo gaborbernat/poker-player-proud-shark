@@ -6,11 +6,11 @@ import com.google.gson.JsonElement;
 
 public class Player {
 
-	static final String VERSION = "Steady red, adapt, static dealer rules";
+	static final String VERSION = "Steady red, adapt, static dealer fixed rules";
 
 	public static int betRequest(JsonElement request) {
 		try {
-			return new Game(JsonParser.parseGameState(request.getAsString())).firstStrategy();
+			return new Game(JsonParser.parseGameState(request.getAsString())).secondStrategy();
 		} catch (Exception e) {
 			// noinspection ThrowablePrintedToSystemOut
 			System.err.println(e);
