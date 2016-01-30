@@ -40,7 +40,7 @@ public class NumberRanker implements RankerType {
                 rank = 300;
                 break;
             case 4:
-                rank = 600;
+                rank = 700;
                 break;
         }
 

@@ -6,6 +6,11 @@ public class Card {
 	private final String rank;
 	private final String suit;
 
+	public Card(Integer rank, Suit suit) {
+		this.rank = rank.toString();
+		this.suit = suit.toString();
+	}
+
 	public Card(String rank, String suit) {
 		this.rank = rank;
 		this.suit = suit;
