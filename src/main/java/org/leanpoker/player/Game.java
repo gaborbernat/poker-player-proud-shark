@@ -7,8 +7,6 @@ import org.leanpoker.player.startinghand.StartingHandHandler;
 
 import java.util.List;
 
-import static javafx.scene.input.KeyCode.M;
-
 public class Game {
 
 	private static final String TEAM_NAME = "Proud Shark";
@@ -74,6 +72,11 @@ public class Game {
 
 	public boolean isThereAnyBetInRound() {
 		return state.getPot() > state.getSmallBlind() * 3;
+	}
+
+	public int secondStrategy() {
+		if (isDealerUs() && !isThereAnyBetInRound()) { return state.getMinimumRaise(); }
+		return firstStrategy();
 	}
 
 }
