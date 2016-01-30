@@ -19,7 +19,7 @@ public class Game {
 	/**
 	 * The index of our player in the "players" list.
 	 */
-	public int getOurIndex() { 
+	public int getOurIndex() {
 		if (index<0) {
 			index = 0;
 			for (OtherPlayer player : state.getPlayers()) {
