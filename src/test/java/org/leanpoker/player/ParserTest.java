@@ -10,7 +10,6 @@ import java.util.List;
 public class ParserTest extends JsonTestHelper {
     private JsonElement request;
 
-
     @Before
     public void parseJson() {
         request = getRequest("simpleRequest");
