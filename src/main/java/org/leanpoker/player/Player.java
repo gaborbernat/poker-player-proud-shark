@@ -24,7 +24,7 @@ public class Player {
 		List<Parser.Card> ourCards = Parser.getOurHand(element);
 		Parser.Card f = ourCards.get(0);
 		Parser.Card s = ourCards.get(1);
-		return new StartingHandHandler().getStartingHandValue(f, s) <= 1;
+		return new StartingHandHandler().getStartingHandValue(f, s) <= 0;
 	}
 
 	private static int allInValue() {
