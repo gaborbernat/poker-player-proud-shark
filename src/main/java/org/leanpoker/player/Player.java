@@ -1,6 +1,8 @@
 package org.leanpoker.player;
 
+import org.leanpoker.player.domain.GameState;
 import org.leanpoker.player.domain.JsonParser;
+import org.leanpoker.player.postFlop.PostFlopStrategy;
 
 import com.google.gson.JsonElement;
 
@@ -11,7 +13,13 @@ public class Player {
 	public static int betRequest(JsonElement request) {
 		try {
 
-			return new Game(JsonParser.parseGameState(request.toString())).firstStrategy();
+			GameState state = JsonParser.parseGameState(request.toString());
+			if (state.getCommunityCards() == null || state.getCommunityCards().isEmpty()) {
+				PostFlopStrategy strategy = new PostFlopStrategy(state);
+				int bet = strategy.getBet();
+				return bet;
+			}
+			return new Game(state).firstStrategy();
 		} catch (Exception e) {
 			// noinspection ThrowablePrintedToSystemOut
 			System.err.println(e);
