@@ -14,6 +14,7 @@ public class Ranker {
         rankers.add(new TwoPairRanker());
         rankers.add(new FullRanker());
         rankers.add(new StraightRanker());
+        rankers.add(new FlushRanker());
     }
 
     public int getRank(List<Card> cards) {
