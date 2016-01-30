@@ -13,7 +13,7 @@ public class GameStateConversionTest {
 	public void testParse(){
 		//given
 		GameState expected = new GameState(3, 1, 10, 320, 
-				5, 15, 2, 7, 4, new ArrayList(), new ArrayList());
+				5, 15, 2, 7, 4, new ArrayList<Card>(), new ArrayList());
 		String string = "{"
 				+ "'torunament_id':'sdfasdf',"
 				+ "'round': 3,"

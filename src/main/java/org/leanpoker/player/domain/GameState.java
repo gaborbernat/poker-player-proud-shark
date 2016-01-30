@@ -56,6 +56,8 @@ public class GameState {
 		return result;
 	}
 
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -95,6 +97,8 @@ public class GameState {
 			return false;
 		return true;
 	}
+
+
 
 	public int getRound() {
 		return round;
