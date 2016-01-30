@@ -19,7 +19,7 @@ public class Game {
 	/**
 	 * A játékban hányas számú játékos vagyunk? a "players" lista indexe.
 	 */
-	public int getOurIndex() {
+	public int getOurIndex() { 
 		if (index<0) {
 			index = 0;
 			for (OtherPlayer player : state.getPlayers()) {
