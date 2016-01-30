@@ -1,6 +1,7 @@
 package org.leanpoker.player.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,8 +13,11 @@ public class GameStateConversionTest {
 	@Test
 	public void testParse(){
 		//given
+		List<Card> cards = new ArrayList<Card>();
+		cards.add(new Card("4", "spades"));
+		
 		GameState expected = new GameState(3, 1, 10, 320, 
-				5, 15, 2, 7, 4, new ArrayList<Card>(), new ArrayList());
+				5, 15, 2, 7, 4, new ArrayList(), cards);
 		String string = "{"
 				+ "'torunament_id':'sdfasdf',"
 				+ "'round': 3,"
@@ -27,7 +31,7 @@ public class GameStateConversionTest {
 				+ "'in_action': 4,"
 				+ "'players': [],"
 				+ "'community_cards': ["
-				+ "  {\"rank\": \"4\",\"suit\": \"spades\"},"
+				+ "  {\"rank\": \"4\",\"suit\": \"spades\"}"
 				+ "]"
 				+ "}";
 		Gson gson = new Gson();

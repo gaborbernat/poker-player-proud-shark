@@ -35,7 +35,7 @@ public class GameState {
 		return "GameState [round=" + round + ", bet_index=" + bet_index + ", small_blind=" + small_blind
 				+ ", current_buy_in=" + current_buy_in + ", pot=" + pot + ", minimum_raise=" + minimum_raise
 				+ ", dealer=" + dealer + ", orbits=" + orbits + ", in_action=" + in_action + ", players=" + players
-				+ ", community_cards=" + community_cards + "]";
+				+ ", community_cards=" + community_cards.toString() + "]";
 	}
 
 	@Override

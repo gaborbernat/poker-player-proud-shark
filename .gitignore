@@ -7,3 +7,9 @@ build
 .gradle
 .idea
 poker-player-java.iml
+
+#eclipse files
+.settings
+.project
+.classphath
+target
