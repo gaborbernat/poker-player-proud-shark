@@ -9,7 +9,7 @@ import java.util.List;
 public class Parser {
 	final static String OUR_NAME = "Proud Shark";
 
-	public static List<Card> getOurHand(JsonElement request, final String name) {
+	public static List<Card> getOurHand(JsonElement request) {
 		return getHand(request, OUR_NAME);
 	}
 
